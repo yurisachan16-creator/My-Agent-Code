@@ -58,12 +58,14 @@ cp .env.example .env
 编辑 `.env`：
 
 ```env
-# Kimi / Moonshot（官方 Claude Code 推荐写法）
-ANTHROPIC_AUTH_TOKEN=sk-xxx       # Moonshot API Key，走 Authorization: Bearer
+# Kimi / Moonshot（国区官方 Claude Code 推荐写法）
+ANTHROPIC_AUTH_TOKEN=sk-xxx       # Kimi 开放平台 API Key，走 Authorization: Bearer
 # ANTHROPIC_API_KEY=sk-xxx        # 可选：仅当你的代理服务要求 x-api-key 时使用
 
-# Anthropic 兼容端点
-ANTHROPIC_BASE_URL=https://api.moonshot.ai/anthropic
+# Anthropic 兼容端点（国区）
+ANTHROPIC_BASE_URL=https://api.moonshot.cn/anthropic
+# 国际站可改为：
+# ANTHROPIC_BASE_URL=https://api.moonshot.ai/anthropic
 
 # 模型配置
 ANTHROPIC_MODEL=kimi-k2.5

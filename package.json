@@ -7,8 +7,9 @@
     "claude-haha": "./bin/claude-haha"
   },
   "scripts": {
-    "claude-haha": "bun run ./bin/claude-haha",
-    "start": "bun run ./bin/claude-haha"
+    "claude-haha": "bun --env-file=.env ./src/entrypoints/cli.tsx",
+    "start": "bun --env-file=.env ./src/entrypoints/cli.tsx",
+    "start:recovery": "bun --env-file=.env ./src/localRecoveryCli.ts"
   },
   "dependencies": {
     "@anthropic-ai/sandbox-runtime": "^0.0.44",
