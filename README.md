@@ -2,8 +2,6 @@
 
 基于 Claude Code 泄露源码修复的本地可运行版本，支持接入任意 Anthropic 兼容接口。
 
-> 当前文档默认以 Kimi 国区为示例，同时补充 Kimi 国际站和通用 Anthropic 兼容接口配置。
-
 <p align="center">
   <img src="docs/00runtime.png" alt="运行截图" width="800">
 </p>
@@ -31,10 +29,28 @@ npm install
 复制模板：
 
 ```bash
+# macOS / Linux
 cp .env.example .env
+
+# Windows PowerShell
+Copy-Item .env.example .env
 ```
 
-在 `.env` 中至少填好：
+在 `.env` 中至少填好以下字段（通用模板）：
+
+```env
+ANTHROPIC_AUTH_TOKEN=sk-xxx
+ANTHROPIC_BASE_URL=https://your-provider.example.com/anthropic
+ANTHROPIC_MODEL=your-model-name
+ANTHROPIC_DEFAULT_OPUS_MODEL=your-model-name
+ANTHROPIC_DEFAULT_SONNET_MODEL=your-model-name
+ANTHROPIC_DEFAULT_HAIKU_MODEL=your-model-name
+CLAUDE_CODE_SUBAGENT_MODEL=your-model-name
+ENABLE_TOOL_SEARCH=false
+```
+
+<details>
+<summary>Kimi 国区示例（platform.moonshot.cn）</summary>
 
 ```env
 ANTHROPIC_AUTH_TOKEN=sk-xxx
@@ -47,17 +63,27 @@ CLAUDE_CODE_SUBAGENT_MODEL=kimi-k2.5
 ENABLE_TOOL_SEARCH=false
 ```
 
-更多供应商模板见 [provider-config.md](docs/provider-config.md)。
+</details>
 
-### 3. 启动
+<details>
+<summary>Kimi 国际站示例（api.moonshot.ai）</summary>
 
-推荐统一使用 `package.json` scripts：
-
-```bash
-bun run start
+```env
+ANTHROPIC_AUTH_TOKEN=sk-xxx
+ANTHROPIC_BASE_URL=https://api.moonshot.ai/anthropic
+ANTHROPIC_MODEL=kimi-k2.5
+ANTHROPIC_DEFAULT_OPUS_MODEL=kimi-k2.5
+ANTHROPIC_DEFAULT_SONNET_MODEL=kimi-k2.5
+ANTHROPIC_DEFAULT_HAIKU_MODEL=kimi-k2.5
+CLAUDE_CODE_SUBAGENT_MODEL=kimi-k2.5
+ENABLE_TOOL_SEARCH=false
 ```
 
-常用命令：
+</details>
+
+更多供应商模板及鉴权方式见 [docs/provider-config.md](docs/provider-config.md)。
+
+### 3. 启动
 
 ```bash
 # 交互模式
@@ -70,7 +96,7 @@ bun run start -- -p "your prompt here"
 bun run start:recovery
 ```
 
-三平台详细运行说明见 [local-run.md](docs/local-run.md)。
+三平台详细运行说明见 [docs/local-run.md](docs/local-run.md)。
 
 ## 文档导航
 
