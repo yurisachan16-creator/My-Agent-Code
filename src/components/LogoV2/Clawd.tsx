@@ -70,115 +70,42 @@ const APPLE_EYES: Record<ClawdPose, string> = {
   'look-right': ' ▝   ▝ ',
   'arms-up': ' ▗   ▖ '
 };
-export function Clawd(t0) {
-  const $ = _c(26);
-  let t1;
-  if ($[0] !== t0) {
-    t1 = t0 === undefined ? {} : t0;
-    $[0] = t0;
-    $[1] = t1;
-  } else {
-    t1 = $[1];
+export function Clawd(_t0: Props): React.ReactNode {
+  // March 7th - Hunt Path (三月七·猎人路)
+  if (env.terminal === 'Apple_Terminal') {
+    return <AppleTerminalClawd pose="default" />
   }
-  const {
-    pose: t2
-  } = t1;
-  const pose = t2 === undefined ? "default" : t2;
-  if (env.terminal === "Apple_Terminal") {
-    let t3;
-    if ($[2] !== pose) {
-      t3 = <AppleTerminalClawd pose={pose} />;
-      $[2] = pose;
-      $[3] = t3;
-    } else {
-      t3 = $[3];
-    }
-    return t3;
-  }
-  const p = POSES[pose];
-  let t3;
-  if ($[4] !== p.r1L) {
-    t3 = <Text color="clawd_body">{p.r1L}</Text>;
-    $[4] = p.r1L;
-    $[5] = t3;
-  } else {
-    t3 = $[5];
-  }
-  let t4;
-  if ($[6] !== p.r1E) {
-    t4 = <Text color="clawd_body" backgroundColor="clawd_background">{p.r1E}</Text>;
-    $[6] = p.r1E;
-    $[7] = t4;
-  } else {
-    t4 = $[7];
-  }
-  let t5;
-  if ($[8] !== p.r1R) {
-    t5 = <Text color="clawd_body">{p.r1R}</Text>;
-    $[8] = p.r1R;
-    $[9] = t5;
-  } else {
-    t5 = $[9];
-  }
-  let t6;
-  if ($[10] !== t3 || $[11] !== t4 || $[12] !== t5) {
-    t6 = <Text>{t3}{t4}{t5}</Text>;
-    $[10] = t3;
-    $[11] = t4;
-    $[12] = t5;
-    $[13] = t6;
-  } else {
-    t6 = $[13];
-  }
-  let t7;
-  if ($[14] !== p.r2L) {
-    t7 = <Text color="clawd_body">{p.r2L}</Text>;
-    $[14] = p.r2L;
-    $[15] = t7;
-  } else {
-    t7 = $[15];
-  }
-  let t8;
-  if ($[16] === Symbol.for("react.memo_cache_sentinel")) {
-    t8 = <Text color="clawd_body" backgroundColor="clawd_background">█████</Text>;
-    $[16] = t8;
-  } else {
-    t8 = $[16];
-  }
-  let t9;
-  if ($[17] !== p.r2R) {
-    t9 = <Text color="clawd_body">{p.r2R}</Text>;
-    $[17] = p.r2R;
-    $[18] = t9;
-  } else {
-    t9 = $[18];
-  }
-  let t10;
-  if ($[19] !== t7 || $[20] !== t9) {
-    t10 = <Text>{t7}{t8}{t9}</Text>;
-    $[19] = t7;
-    $[20] = t9;
-    $[21] = t10;
-  } else {
-    t10 = $[21];
-  }
-  let t11;
-  if ($[22] === Symbol.for("react.memo_cache_sentinel")) {
-    t11 = <Text color="clawd_body">{"  "}▘▘ ▝▝{"  "}</Text>;
-    $[22] = t11;
-  } else {
-    t11 = $[22];
-  }
-  let t12;
-  if ($[23] !== t10 || $[24] !== t6) {
-    t12 = <Box flexDirection="column">{t6}{t10}{t11}</Box>;
-    $[23] = t10;
-    $[24] = t6;
-    $[25] = t12;
-  } else {
-    t12 = $[25];
-  }
-  return t12;
+  return (
+    <Box flexDirection="column">
+      {/* 发饰 + 粉色乱发 */}
+      <Text>
+        <Text color="rgb(255,182,193)">{'  ✿╭─╮  '}</Text>
+      </Text>
+      {/* 笑脸 */}
+      <Text>
+        <Text color="rgb(255,182,193)">{'╭('}</Text>
+        <Text color="rgb(255,150,170)">{'◕ᴗ◕'}</Text>
+        <Text color="rgb(255,182,193)">{')  '}</Text>
+      </Text>
+      {/* 红色肩甲 + 剑横出 */}
+      <Text>
+        <Text color="rgb(210,55,55)">{'  │▀▀▀│'}</Text>
+        <Text color="rgb(200,215,230)">{'━━━'}</Text>
+      </Text>
+      {/* 红色外套身体 */}
+      <Text>
+        <Text color="rgb(210,55,55)">{'  │▓▓▓│  '}</Text>
+      </Text>
+      {/* 腿 */}
+      <Text>
+        <Text color="rgb(80,80,100)">{'  ╱   ╲  '}</Text>
+      </Text>
+      {/* 靴子 */}
+      <Text>
+        <Text color="rgb(40,40,55)">{'  ‾   ‾  '}</Text>
+      </Text>
+    </Box>
+  )
 }
 function AppleTerminalClawd(t0) {
   const $ = _c(10);
