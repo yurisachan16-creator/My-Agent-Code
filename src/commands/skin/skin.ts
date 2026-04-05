@@ -1,9 +1,9 @@
 import type { LocalCommandCall } from '../../types/command.js'
 import { getGlobalConfig, saveGlobalConfig } from '../../utils/config.js'
 
-export const call: LocalCommandCall = async (_command, args) => {
+export const call: LocalCommandCall = async (args) => {
   const config = getGlobalConfig()
-  const arg = (args ?? '').trim()
+  const arg = args.trim()
 
   let newSkin: 'default' | 'huawei'
 
